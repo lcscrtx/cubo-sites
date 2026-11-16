@@ -1,0 +1,19 @@
+/* Logo oficial do Cidade Conectada (public/brand/cidade-conectada-logo.svg, tirado de suacidadeconectada.com.br) */
+.cc-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text);
+}
+.cc-brand__logo { height: 34px; width: auto; }
+.cc-brand__by {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-3);
+  padding-left: 12px;
+  border-left: 1px solid var(--border);
+}
+.cc-brand__by img { height: 14px; width: auto; }

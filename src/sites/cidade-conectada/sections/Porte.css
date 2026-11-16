@@ -1,0 +1,89 @@
+.pt { padding-block: 0 var(--sec-y); background: var(--bg); }
+
+.pt-body {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 16px 56px;
+  align-items: center;
+  transition: opacity 0.8s var(--ease), translate 0.8s var(--ease);
+}
+.pt:not(.is-in) .pt-body { opacity: 0; translate: 0 28px; }
+
+.pt-copy h2 { font-size: var(--fs-h2); line-height: 1.08; font-weight: 500; letter-spacing: -0.03em; }
+.pt-lead { margin-top: 16px; font-size: 17px; line-height: 1.55; color: var(--text-3); max-width: 44ch; }
+
+/* Lista leve: linhas com uma barra à esquerda; só a ativa ganha destaque */
+.pt-list { list-style: none; margin: 32px 0 0; padding: 0; display: flex; flex-direction: column; }
+.pt-list button {
+  position: relative;
+  width: 100%;
+  display: block;
+  padding: 14px 0 14px 22px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+/* trilho da barra */
+.pt-list button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--border);
+  transition: background-color 0.3s var(--ease);
+}
+.pt-list button.is-active::before { background: var(--blue); }
+.pt-list__text { display: flex; flex-direction: column; gap: 4px; }
+.pt-list__text strong { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: var(--text-3); transition: color 0.3s var(--ease); }
+.pt-list__text > span { font-size: 14px; line-height: 1.5; color: var(--text-3); }
+.pt-list button:hover strong, .pt-list button.is-active strong { color: var(--text); }
+/* detalhe só aparece na ativa */
+.pt-list__text > span { display: grid; justify-items: start; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 0.4s var(--ease), opacity 0.3s var(--ease); }
+.pt-list__text > span > * , .pt-list__text > span { overflow: hidden; }
+.pt-list button.is-active .pt-list__text > span { grid-template-rows: 1fr; opacity: 1; }
+/* tempo do giro automático preenche a barra de cima para baixo */
+.pt-list__timer {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--blue-200);
+  transform-origin: top;
+  animation: pt-timer 4s linear both;
+}
+@keyframes pt-timer { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+/* Mapa plano de quadradinhos: a altura vem do próprio mapa */
+.pt-art { position: relative; display: grid; place-items: center; }
+.pt-map {
+  width: min(100%, 520px);
+  aspect-ratio: 12 / 8;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 6px;
+}
+.pt-cell {
+  border-radius: 5px;
+  background: var(--ink-50);
+  box-shadow: inset 0 0 0 1px var(--border-soft);
+  transition: background-color 0.45s var(--ease), box-shadow 0.45s var(--ease), scale 0.45s var(--ease);
+  transition-delay: var(--d);
+}
+.pt-cell--1 { background: var(--blue-100); box-shadow: none; }
+.pt-cell--2 { background: var(--blue-300); box-shadow: none; }
+.pt-cell--3 { background: var(--blue); box-shadow: none; }
+.pt:not(.is-in) .pt-cell { scale: 0.6; opacity: 0; }
+.pt .pt-cell { transition-property: background-color, box-shadow, scale, opacity; }
+
+@media (max-width: 960px) {
+  .pt-body { grid-template-columns: 1fr; }
+}

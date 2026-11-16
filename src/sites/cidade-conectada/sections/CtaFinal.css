@@ -1,0 +1,35 @@
+.ct { padding-block: 0 var(--sec-y); background: var(--bg); }
+
+.ct-panel {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: clamp(56px, 7vw, 96px) 24px;
+  border-radius: 28px;
+  color: var(--white);
+  isolation: isolate;
+  /* cor de reserva enquanto o degradê animado não carrega (ou sem WebGL) */
+  background: linear-gradient(135deg, var(--blue-800), var(--blue));
+}
+.ct-panel h2 {
+  position: relative;
+  max-width: 16ch;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.06;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  color: var(--white);
+}
+.ct-lead { position: relative; font-size: 18px; color: rgb(255 255 255 / 0.82); max-width: 44ch; }
+.ct-actions { position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 16px; }
+.ct-note { position: relative; margin-top: 8px; font-size: 13px; color: rgb(255 255 255 / 0.6); }
+
+.ct-rays { position: absolute; inset: 0; z-index: -1; }
+
+@media (max-width: 760px) {
+  .ct-actions .btn { width: 100%; }
+}

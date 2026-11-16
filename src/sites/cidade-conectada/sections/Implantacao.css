@@ -1,0 +1,147 @@
+.im { padding-block: 0 var(--sec-y); background: var(--bg); }
+
+.im-head {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px 64px;
+  align-items: end;
+  margin-bottom: clamp(40px, 5vw, 56px);
+  transition: opacity 0.8s var(--ease), translate 0.8s var(--ease);
+}
+.im:not(.is-in) .im-head { opacity: 0; translate: 0 20px; }
+.im-head h2 { font-size: var(--fs-h2); line-height: 1.08; font-weight: 500; letter-spacing: -0.03em; }
+.im-head p { font-size: 17px; line-height: 1.55; color: var(--text-3); max-width: 46ch; padding-bottom: 6px; }
+
+/* Palco azul com a tela do plano */
+.im-stage {
+  position: relative;
+  overflow: hidden;
+  height: clamp(340px, 30vw, 400px);
+  border-radius: 24px;
+  background:
+    radial-gradient(60% 70% at 50% 40%, rgb(255 255 255 / 0.6) 0%, transparent 70%),
+    var(--panel);
+  display: grid;
+  place-items: center;
+  padding-bottom: 44px;
+  transition: opacity 0.8s var(--ease) 0.1s, translate 0.8s var(--ease) 0.1s;
+}
+.im:not(.is-in) .im-stage { opacity: 0; translate: 0 28px; }
+
+.im-plan {
+  width: min(560px, calc(100% - 40px));
+  padding: 20px 22px 8px;
+  border-radius: 20px;
+  background: var(--white);
+  border: 1px solid rgb(10 18 38 / 0.05);
+  box-shadow: var(--shadow-lg);
+  transition: translate 0.8s var(--ease) 0.2s, opacity 0.8s var(--ease) 0.2s;
+}
+.im:not(.is-in) .im-plan { opacity: 0; translate: 0 24px; }
+.im-plan__head { display: flex; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--border-soft); }
+.im-plan__icon { position: relative; flex: none; width: 34px; height: 34px; border-radius: 9px; background: var(--blue); }
+.im-plan__icon::after { content: ""; position: absolute; inset: 10px; border-radius: 3px; background: rgb(255 255 255 / 0.9); }
+.im-plan__head strong { display: block; font-size: 15px; font-weight: 600; }
+.im-plan__head small { font-size: 12px; color: var(--text-3); }
+.im-plan__badge { margin-left: auto; padding: 4px 10px; border-radius: 999px; background: var(--blue-50); color: var(--blue-600); font-size: 11.5px; font-weight: 600; }
+
+.im-plan__rows { list-style: none; margin: 0; padding: 0; }
+.im-plan__rows li {
+  display: grid;
+  grid-template-columns: 24px 110px 1fr 104px;
+  align-items: center;
+  gap: 12px;
+  margin-inline: -10px;
+  padding: 12px 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+.im-plan__rows li + li { border-top: 1px solid var(--border-soft); }
+.im-plan.has-active li:not(.is-active) { opacity: 0.45; }
+.im-plan__rows li.is-active { background: var(--blue-50); border-top-color: transparent; }
+.im-plan__num { font-size: 11.5px; font-weight: 600; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.im-plan__rows b { font-size: 14px; font-weight: 600; }
+.im-plan__bar { height: 8px; border-radius: 999px; background: var(--blue-50); overflow: hidden; }
+.is-active .im-plan__bar { background: var(--white); }
+.im-plan__bar > span {
+  display: block;
+  height: 100%;
+  width: var(--w);
+  border-radius: inherit;
+  background: var(--blue);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1.2s var(--ease) var(--d);
+}
+.im.is-in .im-plan__bar > span { transform: scaleX(1); }
+.im-plan__status { justify-self: end; font-style: normal; font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.im-plan__status--ok { background: var(--blue); color: var(--white); }
+.im-plan__status--run { background: var(--blue-50); color: var(--blue-600); }
+.im-plan__status--next { background: var(--white); color: var(--text-3); box-shadow: inset 0 0 0 1px var(--border); }
+
+/* Card flutuante da equipe */
+.im-team {
+  position: absolute;
+  right: max(20px, calc(50% - 420px));
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px 10px 12px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.95);
+  border: 1px solid rgb(10 18 38 / 0.06);
+  box-shadow: 0 12px 28px -12px rgb(10 18 38 / 0.25);
+  transition: translate 0.8s var(--ease) 0.6s, opacity 0.8s var(--ease) 0.6s;
+}
+.im:not(.is-in) .im-team { opacity: 0; translate: 0 16px; }
+.im-team__avatars { display: flex; }
+.im-team__avatars i { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--white); margin-left: -8px; }
+.im-team__avatars i:first-child { margin-left: 0; }
+.im-team strong { display: block; font-size: 13px; font-weight: 600; }
+.im-team small { font-size: 11.5px; color: var(--text-3); }
+
+/* Etapas */
+.im-steps {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.im-steps li {
+  padding: 22px 22px 24px;
+  border-radius: 20px;
+  border: 1px solid var(--border-soft);
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  outline: none;
+  transition:
+    opacity 0.7s var(--ease) var(--d),
+    translate 0.7s var(--ease) var(--d),
+    border-color 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
+}
+.im:not(.is-in) .im-steps li { opacity: 0; translate: 0 20px; }
+.im-steps li.is-active, .im-steps li:focus-visible { border-color: var(--blue-200); box-shadow: var(--shadow); }
+.im-steps__num { font-size: 12px; font-weight: 600; color: var(--text-3); font-variant-numeric: tabular-nums; transition: color 0.3s var(--ease); }
+.im-steps li.is-active .im-steps__num { color: var(--blue); }
+.im-steps h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; }
+.im-steps p { font-size: 14px; line-height: 1.5; color: var(--text-3); }
+.im-steps__ph { margin-top: 4px; font-size: 12.5px !important; }
+
+
+@media (max-width: 960px) {
+  .im-head { grid-template-columns: 1fr; }
+  .im-steps { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .im-steps { grid-template-columns: 1fr; }
+  .im-plan__rows li { grid-template-columns: 22px 1fr auto; }
+  .im-plan__head small, .im-plan__badge { display: none; }
+  .im-plan__bar { display: none; }
+  .im-team { display: none; }
+}

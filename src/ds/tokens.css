@@ -1,0 +1,97 @@
+/* =========================================================
+   Tokens comuns a todos os sites (Cubo e produtos)
+   Linha estética: 1Doc. Fundo claro, tipografia elegante, muito respiro.
+   Cada site troca só --accent e --accent-ink, via [data-site].
+   ========================================================= */
+
+:root {
+  /* Paleta oficial da marca (manual enviado em 2026-11-16) */
+  --brand-royal: #1f299c;
+  --brand-navy: #16205b;
+  --brand-blue: #0372ff;
+  --brand-cyan: #30d1ff;
+  --brand-periwinkle: #a3a9f5;
+  --brand-slate: #787ca9;
+  --brand-ice: #e1eaf9;
+  --brand-orange: #f15928; /* disponível; ainda sem uso no site */
+
+  /* Escala de azul usada nos componentes, montada sobre a paleta.
+     Principal = azul do logo (#0372FF). Os tons claros são tintas dele, não cores novas. */
+  --blue: var(--brand-blue);
+  --blue-600: var(--brand-royal); /* hover e texto azul sobre fundo claro */
+  --blue-800: var(--brand-navy);
+  --blue-400: #4f9bff; /* azul do logo 70% */
+  --blue-300: #8abcff; /* 45% */
+  --blue-200: #bdd9ff; /* 25% */
+  --blue-100: #dceaff; /* 13% */
+  --blue-50: #eff6ff;  /* 6% */
+  --panel: var(--brand-ice); /* fundo dos painéis ilustrados */
+
+  /* Neutros: texto em preto e cinzas neutros (Lucas preferiu preto ao navy em 2026-11-16) */
+  --ink-950: #0d0f14;
+  --ink-900: #1a1d24;
+  --ink-700: #40444e;
+  --ink-500: #676c78;
+  --ink-400: #9196a1;
+  --ink-200: #dfe4ee;
+  --ink-100: #edf0f6;
+  --ink-50: #f6f8fc;
+  --white: #ffffff;
+
+  /* Papéis */
+  --bg: var(--white);
+  --surface: var(--ink-50);
+  --text: var(--ink-950);
+  --text-2: var(--ink-700);
+  --text-3: var(--ink-500);
+  --border: var(--ink-200);
+  --border-soft: var(--ink-100);
+  --accent: var(--blue);
+  --accent-hover: var(--blue-600);
+  --accent-soft: var(--blue-50);
+  --dark: var(--ink-950);
+
+  /* Tipografia: Figtree é a fonte da Cubo. Cada produto troca pela sua, via [data-site]. */
+  --font: "Figtree Variable", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font);
+
+  --fs-display: clamp(40px, 5.2vw, 68px);
+  --fs-h2: clamp(30px, 3.4vw, 44px);
+  --fs-h3: 20px;
+  --fs-lead: clamp(17px, 1.4vw, 20px);
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-eyebrow: 13px;
+
+  /* Espaço */
+  --container: 1200px;
+  --gutter: clamp(20px, 4vw, 40px);
+  --sec-y: clamp(72px, 9vw, 128px);
+
+  /* Forma */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 1px 2px rgb(10 18 38 / 0.05);
+  --shadow: 0 1px 2px rgb(10 18 38 / 0.04), 0 12px 32px -12px rgb(10 18 38 / 0.12);
+  --shadow-lg: 0 2px 4px rgb(10 18 38 / 0.04), 0 32px 64px -24px rgb(10 18 38 / 0.18);
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Cidade Conectada: azul da marca e IBM Plex Sans. Os outros produtos ganham acento e fonte próprios quando forem desenhados. */
+[data-site="cidade-conectada"] {
+  --accent: var(--blue);
+  --font: "IBM Plex Sans Variable", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font);
+  font-family: var(--font);
+}
+
+/* Cubo, Legislativo Conectado e Cidade Zero Papel: Google Sans Flex (Google Fonts, carregada no index.html) */
+[data-site="cubo"],
+[data-site="legislativo"],
+[data-site="zero-papel"] {
+  --font: "Google Sans Flex", "Google Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font);
+  font-family: var(--font);
+}

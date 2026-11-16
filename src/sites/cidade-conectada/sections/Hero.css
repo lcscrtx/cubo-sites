@@ -1,0 +1,58 @@
+/* Hero: cor da marca no hero inteiro, texto centralizado em branco (tamanhos mantidos)
+   e, embaixo, a cena viva do slogan (HeroLive). Cabe na primeira tela, abaixo do cabeçalho. */
+.cc-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  /* bloco com bordas arredondadas e uma margem fina em volta, como um cartão */
+  margin: var(--hero-gap);
+  border-radius: 24px;
+  /* o cabeçalho fica por cima, dentro do hero: o hero ocupa a tela inteira menos a margem */
+  min-height: calc(100svh - var(--hero-gap) * 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(28px, 5vh, 56px);
+  padding-top: calc(var(--header-h, 100px) + clamp(24px, 4vh, 56px));
+  padding-bottom: clamp(36px, 6vh, 72px);
+  color: var(--white);
+  /* cor de reserva enquanto o degradê animado não carrega (ou sem WebGL) */
+  background: linear-gradient(160deg, var(--blue-800), var(--blue));
+}
+.cc-hero__bg { position: absolute; inset: 0; z-index: -1; }
+:root { --hero-gap: 12px; }
+@media (max-width: 640px) {
+  :root { --hero-gap: 8px; }
+  .cc-hero { border-radius: 18px; }
+}
+
+.cc-hero__copy { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.cc-hero__eyebrow { font-size: 14px; font-weight: 500; color: var(--blue-200); }
+.cc-hero__title {
+  margin-top: 14px;
+  max-width: 18ch;
+  font-size: clamp(32px, 9vw, 48px); /* 48px; só encolhe em telas estreitas de celular */
+  line-height: 1.06;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  color: var(--white);
+}
+.cc-hero__lead {
+  margin-top: 18px;
+  max-width: 560px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgb(255 255 255 / 0.82);
+  text-wrap: balance;
+}
+.cc-hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
+
+/* Entrada do hero ao carregar: texto sobe em sequência, depois a cena */
+@keyframes cc-up { from { opacity: 0; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
+.cc-hero__eyebrow,
+.cc-hero__title,
+.cc-hero__lead,
+.cc-hero__actions { animation: cc-up 0.8s var(--ease) both; }
+.cc-hero__title { animation-delay: 0.08s; }
+.cc-hero__lead { animation-delay: 0.18s; }
+.cc-hero__actions { animation-delay: 0.28s; }
