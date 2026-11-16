@@ -7,3 +7,6 @@ dist
 Thumbs.db
 # briefing interno da Cubo (wireframe e áudio): não vai para o repositório público
 referencia/
+
+.vercel
+.env*
