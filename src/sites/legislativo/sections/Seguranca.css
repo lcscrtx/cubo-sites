@@ -1,0 +1,7 @@
+/* Seção de diferenciais e leis do Legislativo (Seguranca.jsx): duas faixas no molde da segurança do CC */
+.lsg-dif { grid-template-columns: repeat(3, 1fr); }
+.lsg-rotulo { margin: 48px 0 16px; font-size: 13px; font-weight: 500; letter-spacing: 0.02em; color: var(--text-3); }
+@media (max-width: 960px) {
+  .lsg-dif { grid-template-columns: 1fr; }
+  .lsg-dif li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--border-soft); margin-top: 24px; }
+}

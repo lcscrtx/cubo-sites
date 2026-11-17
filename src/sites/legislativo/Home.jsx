@@ -47,7 +47,7 @@ const nav = [
     href: "#ganhos",
     itens: [
       { label: "Câmaras Municipais", icone: "predio", texto: "Vereadores, Mesa, comunicação e ouvidoria", href: "#ganhos" },
-      { label: "Assembleias Legislativas", icone: "camara", texto: "Com o Painel do Deputado", href: "#ganhos" },
+      { label: "Assembleias Legislativas", icone: "camara", texto: "Com o Painel do Deputado", href: "#porte" },
     ],
   },
   { label: "Diferenciais", href: "#diferenciais" },
@@ -165,6 +165,7 @@ export default function LegislativoHome() {
       <Seguranca />
       <BlogLegislativo />
       <FaqLegislativo demo={DEMO} />
+      <OutrosProdutos exceto="legislativo" titulo={<>Conheça outros<br />produtos Cubo.</>} texto="Para a prefeitura da sua cidade." />
       <CtaFinal
         id="contato"
         titulo="A Câmara já trabalha para a cidade."
