@@ -6,6 +6,16 @@ import { CenaZeroPapel } from "../comum/Cenas.jsx";
 import { LogoZeroPapel, PorCubo, CC_HOME, ZP_HOME, LC_HOME } from "../comum/marcas.jsx";
 import { Secao, Pendencias } from "../cidade-conectada/pages/partes.jsx";
 import CtaFinal from "../cidade-conectada/sections/CtaFinal.jsx";
+import Hero from "./sections/Hero.jsx";
+import Problema from "./sections/Problema.jsx";
+import Setores from "./sections/Setores.jsx";
+import Jornada from "./sections/Jornada.jsx";
+import Junto from "./sections/Junto.jsx";
+import Porte from "./sections/Porte.jsx";
+import Implantacao from "./sections/Implantacao.jsx";
+import Oferta from "./sections/Oferta.jsx";
+import Seguranca from "./sections/Seguranca.jsx";
+import { BlogZeroPapel, FaqZeroPapel } from "./sections/Final.jsx";
 import "./zero-papel.css";
 
 // Home do Cidade Zero Papel (quadro "Cidade Zero Papel · Home" do wireframe).
@@ -97,6 +107,36 @@ export default function ZeroPapelHome() {
       colunas={colunas}
       headerOverlay
     >
+      <Hero demo={DEMO} />
+      <Problema />
+      <Setores />
+      <Jornada />
+      <Junto />
+      <Porte />
+      <Implantacao />
+      <Oferta />
+      <Seguranca />
+      <BlogZeroPapel />
+      <FaqZeroPapel demo={DEMO} />
+      <OutrosProdutos exceto="zero-papel" titulo={<>Conheça outros<br />produtos Cubo.</>} texto="Para a gestão pública." />
+      <CtaFinal
+        id="contato"
+        titulo="Vamos tirar sua prefeitura do papel?"
+        texto="Veja o Cidade Zero Papel em ação com um especialista."
+        acoes={<>
+          <a className="btn btn--light" href={DEMO}>Agendar demonstração</a>
+          <a className="btn btn--outline-light" href={CONTATO.whatsapp.href} target="_blank" rel="noreferrer"><Icone nome="chat" size={16} /> WhatsApp</a>
+        </>}
+      />
+    </LayoutSite>
+  );
+}
+
+// Refeito seção por seção no molde da Home do Cidade Conectada, com aprovação a cada passo.
+// As seções da versão anterior ficam aqui para reaproveitar o conteúdo.
+export function SecoesAnteriores() {
+  return (
+    <>
       <HeroCentro
         rotulo="Entre a prefeitura e o cidadão, a gente."
         titulo="Toda a prefeitura em processos eletrônicos, do protocolo ao arquivo."
@@ -169,6 +209,6 @@ export default function ZeroPapelHome() {
           <a className="btn btn--outline-light" href={CONTATO.whatsapp.href} target="_blank" rel="noreferrer"><Icone nome="chat" size={16} /> WhatsApp</a>
         </>}
       />
-    </LayoutSite>
+    </>
   );
 }

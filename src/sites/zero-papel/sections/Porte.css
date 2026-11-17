@@ -1,0 +1,5 @@
+/* Porte do Zero Papel (Porte.jsx): folhas de papel que viram processos digitais, sobre o mapa do porte do CC */
+.zpo-map .zpo-folha { position: relative; border-radius: 3px 8px 3px 3px; overflow: hidden; }
+.zpo-map .zpo-folha.pt-cell--0 { background: #f3ece0; box-shadow: inset 0 0 0 1px #e6dac4; }
+/* canto dobrado da folha */
+.zpo-map .zpo-folha::after { content: ""; position: absolute; top: 0; right: 0; width: 34%; aspect-ratio: 1; background: linear-gradient(225deg, var(--bg) 50%, rgb(0 0 0 / 0.08) 50%); }

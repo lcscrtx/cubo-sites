@@ -1,0 +1,29 @@
+/* Seção "O problema" do Zero Papel (Problema.jsx): mini telas próprias sobre os painéis da Prova.
+   Escopo em #problema para não mexer na Prova do Cidade Conectada. */
+
+#problema .pv-panel__copy h3 { line-height: 1.15; }
+.zpp-solucao .pv-panel__copy h3 { color: var(--blue-600); }
+
+/* 1 · processo sumido */
+.zpp-sumido { width: 300px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+.zpp-sumido small { font-size: 11.5px; color: var(--text-3); }
+.zpp-sumido strong { font-size: 15px; font-weight: 600; line-height: 1.35; animation: pv-pop 0.4s var(--ease) both; }
+.zpp-alerta { margin-top: 6px; display: inline-flex; align-items: center; gap: 6px; width: fit-content; padding: 4px 10px; border-radius: 999px; background: #fdecec; color: #c53030; font-size: 11.5px; font-weight: 500; }
+
+/* 2 · fila do papel */
+.zpp-fila { translate: calc(var(--k) * 18px) 0; transition: box-shadow 0.4s var(--ease), translate 0.4s var(--ease); }
+.zpp-fila.is-on { translate: calc(var(--k) * 18px) -4px; }
+.zpp-fila__ico { width: 24px; height: 24px; flex: none; border-radius: 7px; display: grid; place-items: center; background: var(--surface); color: var(--text-3); }
+.zpp-espera { background: #fff4e0; color: #a35a00; }
+#problema .pv-row { width: 340px; }
+#problema .pv-row span:nth-child(2) { display: flex; flex-direction: column; line-height: 1.25; }
+#problema .pv-row strong { white-space: nowrap; }
+#problema .pv-row small { font-size: 11px; color: var(--text-3); }
+#problema .pv-status { white-space: nowrap; }
+
+/* 3 · arquivo de caixas */
+.zpp-arquivo { width: 300px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+.zpp-estante { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.zpp-estante i { height: 38px; border-radius: 6px; background: #efe6d6; border: 1px solid #e2d5bd; display: grid; place-items: end start; padding: 4px 6px; }
+.zpp-estante small { font-size: 10px; color: #8a7350; font-style: normal; }
+.zpp-arquivo__busca { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--text-3); }
