@@ -107,7 +107,8 @@
 .pf__item .pf__btn { margin-top: 18px; }
 
 @media (max-width: 900px) {
-  .pf__top { grid-template-columns: 1fr; }
+  .pf__top { grid-template-columns: minmax(0, 1fr); }
+  .pf__top > * { min-width: 0; }
   .pf__tabs { overflow-x: auto; gap: 20px; }
 }
 @media (prefers-reduced-motion: reduce) {

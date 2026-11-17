@@ -93,3 +93,9 @@
   .zph, .zph-prot, .zph-ass { animation: none; }
   .zph-assina.is-on path { animation: none; stroke-dashoffset: 0; }
 }
+
+/* no celular, os nomes das cinco etapas precisam caber lado a lado */
+@media (max-width: 600px) {
+  .zph-tram { padding-inline: 8px; }
+  .zph-tram li { font-size: 9.5px; }
+}

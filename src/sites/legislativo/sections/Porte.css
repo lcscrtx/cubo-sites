@@ -33,3 +33,10 @@
 .lpo-mesa small { font-size: 13px; color: var(--text-3); }
 @keyframes lpo-num { from { opacity: 0; translate: 0 6px; } }
 @media (prefers-reduced-motion: reduce) { .lpo-mesa b { animation: none; } }
+
+/* no celular, a mesa encolhe para não cobrir a primeira fileira */
+@media (max-width: 600px) {
+  .lpo-mesa { min-width: 0; padding: 4px 12px 6px; border-radius: 10px; }
+  .lpo-mesa b { font-size: 22px; }
+  .lpo-mesa small { font-size: 11px; }
+}
