@@ -1,0 +1,130 @@
+/* ===== Blog da Cubo, na linha da página Resources do mindcloud.co ===== */
+
+/* Capa do post (CapaPost.jsx): azul da Cubo, texto branco, ícone da área num quadro de vidro */
+.cp {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  border-radius: 16px;
+  background: radial-gradient(80% 90% at 85% 15%, #3f74ea, transparent 60%), linear-gradient(150deg, var(--cubo-azul), #0b2a8a);
+  color: var(--white);
+}
+.cp__texto { display: flex; flex-direction: column; gap: 4px; max-width: 70%; }
+.cp__texto small { font-size: 12px; color: rgb(255 255 255 / 0.7); }
+.cp__texto strong { font-size: 22px; line-height: 1.15; font-weight: 500; }
+.cp__texto span { font-size: 14px; color: rgb(255 255 255 / 0.85); }
+.cp__ico { position: absolute; right: 22px; top: 50%; translate: 0 -50%; width: 64px; height: 64px; border-radius: 16px; display: grid; place-items: center; background: rgb(255 255 255 / 0.14); border: 1px solid rgb(255 255 255 / 0.25); color: var(--white); }
+.cp__marca { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: rgb(255 255 255 / 0.8); }
+.cp__marca img { height: 14px; width: auto; filter: brightness(0) invert(1); }
+.cp--grande { padding: 32px; border-radius: 20px; }
+.cp--grande .cp__texto strong { font-size: clamp(24px, 2.6vw, 32px); }
+.cp--grande .cp__ico { right: 32px; width: 84px; height: 84px; border-radius: 20px; }
+
+/* Topo do blog: o post em destaque, texto à esquerda e capa à direita */
+.bt { padding-block: clamp(48px, 6vw, 80px) var(--cubo-sec-y); background: #f7f7f8; border-bottom: 1px solid #ececed; }
+.bt__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 64px; align-items: center; }
+.bt__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: #8a8e97; }
+.bt__meta i { width: 3px; height: 3px; border-radius: 50%; background: #c4c6cb; }
+.bt h1 { margin: 16px 0 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.15; font-weight: 500; letter-spacing: 0; color: var(--cubo-preto); }
+.bt__inner > div > p { margin: 16px 0 0; max-width: 46ch; font-size: 15.5px; line-height: 1.6; color: #6b6f78; }
+.bt__btn { margin-top: 24px; display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 16px; border: 1px solid #e3e4e7; border-radius: 999px; background: var(--white); color: var(--cubo-preto); font-size: 14px; font-weight: 500; text-decoration: none; transition: border-color 0.2s var(--ease); }
+.bt__btn:hover { border-color: #c4c6cb; }
+.bt__capa { display: block; border-radius: 20px; text-decoration: none; transition: translate 0.3s var(--ease); }
+.bt__capa:hover { translate: 0 -3px; }
+
+@media (max-width: 900px) {
+  .bt__inner { grid-template-columns: 1fr; }
+  .bt__capa { order: -1; }
+}
+
+/* Lista de posts (ListaPosts, em Blog.jsx): abas, dois cartões grandes e linhas */
+.bl2 { padding-block: var(--cubo-sec-y); background: var(--white); }
+.bl2__abas { display: flex; flex-wrap: wrap; gap: 24px; border-bottom: 1px solid #ececed; }
+.bl2__abas button { position: relative; padding: 0 0 12px; border: 0; background: none; font: inherit; font-size: 14px; font-weight: 500; color: #8a8e97; cursor: pointer; transition: color 0.2s var(--ease); }
+.bl2__abas button:hover { color: var(--cubo-preto); }
+.bl2__abas button.is-on { color: var(--cubo-preto); }
+.bl2__abas button.is-on::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--cubo-preto); }
+
+.bl2__grandes { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px 32px; }
+.bl2__card { display: flex; flex-direction: column; gap: 12px; color: inherit; text-decoration: none; }
+.bl2__card .cp { margin-bottom: 8px; transition: translate 0.3s var(--ease); }
+.bl2__card:hover .cp { translate: 0 -3px; }
+.bl2__card h2 { margin: 0; font-size: clamp(20px, 2vw, 26px); line-height: 1.25; font-weight: 500; letter-spacing: 0; color: var(--cubo-preto); }
+.bl2__card p { margin: 0; max-width: 52ch; font-size: 15px; line-height: 1.55; color: #6b6f78; }
+
+.bl2__linhas { list-style: none; margin: 40px 0 0; padding: 0; border-top: 1px solid #ececed; }
+.bl2__linhas a { display: grid; grid-template-columns: 160px 1fr auto; gap: 24px; align-items: center; padding: 18px 0; border-bottom: 1px solid #ececed; color: inherit; text-decoration: none; transition: background 0.2s var(--ease); }
+.bl2__linhas a:hover strong { color: var(--cubo-azul); }
+.bl2__onde { font-size: 13px; color: #8a8e97; }
+.bl2__linhas strong { font-size: 15.5px; font-weight: 500; color: var(--cubo-preto); transition: color 0.2s var(--ease); }
+.bl2__tipo { font-size: 13px; color: #8a8e97; }
+.bl2__tipo em { padding: 3px 10px; border-radius: 999px; background: #f2f2f3; font-style: normal; font-size: 12px; color: #6b6f78; }
+.bl2__vazio { margin: 32px 0 0; font-size: 15px; color: #8a8e97; }
+.bl2 .in-pend { margin-top: 28px; }
+
+@media (max-width: 760px) {
+  .bl2__grandes { grid-template-columns: 1fr; }
+  .bl2__linhas a { grid-template-columns: 1fr; gap: 4px; }
+  .bl2__abas { gap: 18px; }
+}
+
+/* ===== Topo do artigo (TopoArtigo, em Blog.jsx), como nos posts do mindcloud.co ===== */
+.ta { padding-block: clamp(32px, 4vw, 48px) var(--cubo-sec-y); background: var(--white); }
+.ta__linha { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; }
+.ta__voltar { justify-self: start; display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; color: #6b6f78; text-decoration: none; transition: color 0.2s var(--ease); }
+.ta__voltar svg { rotate: 180deg; }
+.ta__voltar:hover { color: var(--cubo-preto); }
+.ta__texto { max-width: 760px; margin: clamp(36px, 5vw, 56px) auto 0; text-align: center; }
+.ta h1 { margin: 0; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.2; font-weight: 500; letter-spacing: 0; color: var(--cubo-preto); text-wrap: balance; }
+.ta__texto p { margin: 16px auto 0; max-width: 60ch; font-size: 16px; line-height: 1.6; color: #6b6f78; }
+.ta__capa { max-width: 960px; margin: clamp(36px, 5vw, 56px) auto 0; }
+.ta__capa .cp { aspect-ratio: 16 / 7; }
+
+@media (max-width: 640px) {
+  .ta__linha { grid-template-columns: 1fr; justify-items: start; }
+  .ta__texto { text-align: left; }
+  .ta__capa .cp { aspect-ratio: 16 / 10; }
+}
+
+/* ===== Corpo do artigo (CorpoArtigo, em Blog.jsx): coluna estreita como no mindcloud.co ===== */
+.ca { padding-bottom: var(--cubo-sec-y); background: var(--white); }
+.ca__col { max-width: 680px; margin: 0 auto; padding-inline: var(--gutter); color: #3d4048; }
+.ca__nums { margin: 0 0 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.ca__nums div { display: flex; flex-direction: column; gap: 4px; padding: 16px; border: 1px solid #ececed; border-radius: 14px; background: #f7f7f8; }
+.ca__nums dd { margin: 0; font-size: 22px; font-weight: 500; color: var(--cubo-preto); }
+.ca__nums dt { font-size: 13px; color: #8a8e97; }
+.ca section + section { margin-top: 32px; }
+.ca h2 { margin: 0 0 12px; font-size: 20px; line-height: 1.3; font-weight: 500; letter-spacing: 0; color: var(--cubo-preto); }
+.ca p { margin: 0; font-size: 16px; line-height: 1.7; }
+.ca__passos { margin: 0; padding: 0; list-style: none; counter-reset: passo; display: flex; flex-direction: column; gap: 10px; }
+.ca__passos li { counter-increment: passo; display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: baseline; font-size: 16px; line-height: 1.6; }
+.ca__passos li::before { content: counter(passo); width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: #f2f2f3; font-size: 12.5px; font-weight: 500; color: var(--cubo-azul); }
+.ca__citacao { margin: 40px 0 0; padding: 4px 0 4px 20px; border-left: 2px solid var(--cubo-azul); }
+.ca__citacao blockquote { margin: 0; }
+.ca__citacao p { font-size: 19px; line-height: 1.5; font-weight: 500; color: var(--cubo-preto); }
+.ca__citacao figcaption { margin-top: 10px; font-size: 13.5px; color: #8a8e97; }
+.ca__fontes { margin-top: 40px !important; padding-top: 24px; border-top: 1px solid #ececed; }
+.ca__fontes h2 { font-size: 15px; }
+.ca__fontes ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: #6b6f78; }
+.ca__producao { padding: 16px 18px; border-radius: 12px; background: #f7f7f8; color: #6b6f78; }
+.ca__proximo { margin-top: 40px; padding: 20px 22px; border: 1px solid #ececed; border-radius: 16px; background: #f7f7f8; }
+.ca__proximo p { font-size: 15px; font-weight: 500; color: var(--cubo-preto); }
+.ca__proximo div { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.ca__link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--cubo-azul); text-decoration: none; transition: gap 0.2s var(--ease); }
+.ca__link:hover { gap: 10px; }
+
+/* Continue lendo */
+.rl { padding-block: var(--cubo-sec-y); background: #f7f7f8; border-top: 1px solid #ececed; }
+.rl h2 { margin: 0 0 28px; font-size: clamp(22px, 2.2vw, 28px); font-weight: 500; letter-spacing: 0; color: var(--cubo-preto); }
+.rl__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 24px; }
+.rl__grid h3 { margin: 0; font-size: 17px; line-height: 1.35; font-weight: 500; letter-spacing: 0; color: var(--cubo-preto); }
+.rl + .ct { padding-top: var(--cubo-sec-y); }
+
+@media (max-width: 760px) {
+  .ca__nums { grid-template-columns: 1fr; }
+  .rl__grid { grid-template-columns: 1fr; }
+}

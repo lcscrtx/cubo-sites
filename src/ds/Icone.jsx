@@ -29,6 +29,8 @@ const P = {
   cadeado: <><rect x="5" y="10.5" width="14" height="10" rx="2" /><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3M12 14.5v2" /></>,
   assinatura: <><path d="M4 20h16M6 16.5l9.5-9.5 2.5 2.5L8.5 19H6v-2.5Z" /><path d="m14 8.5 2.5 2.5" /></>,
   nuvem: <path d="M7.5 18.5h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.6 11.1 3.7 3.7 0 0 0 7.5 18.5Z" />,
+  mais: <path d="M12 5v14M5 12h14" />,
+  menos: <path d="M5 12h14" />,
   painel: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 16v-4m4 4V9m4 7v-6m4 6v-2" /></>,
   balanca: <><path d="M12 4v16M7 20h10M5 7h14M12 4l-1 3m1-3 1 3" /><path d="m5 7-2.5 6a3 3 0 0 0 5 0L5 7Zm14 0-2.5 6a3 3 0 0 0 5 0L19 7Z" /></>,
   megafone: <><path d="M4 10v4a1 1 0 0 0 1 1h2l8 4V5L7 9H5a1 1 0 0 0-1 1Z" /><path d="M18.5 9a4 4 0 0 1 0 6M8 15l1.5 5" /></>,

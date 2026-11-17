@@ -1,0 +1,55 @@
+/* CTA final (Cta.jsx), na linha do mindcloud.co */
+/* a seção de cima também é branca: sem respiro em cima, para não dobrar o espaço */
+.ct { padding-block: 0 var(--cubo-sec-y); background: var(--white); }
+.ct__panel {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 32px;
+  min-height: 340px;
+  padding: clamp(32px, 5vw, 64px);
+  border-radius: 24px;
+  background: var(--cubo-azul);
+  color: var(--white);
+}
+.ct__copy { position: relative; z-index: 1; }
+.ct h2 { margin: 0; font-size: clamp(26px, 2.8vw, 36px); line-height: 1.2; font-weight: 500; letter-spacing: 0; color: var(--white); }
+.ct h2 span { color: #b9cbf6; }
+.ct__actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; }
+.ct__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 16px;
+  border: 1px solid rgb(255 255 255 / 0.4);
+  border-radius: 999px;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.ct__btn:hover { background: rgb(255 255 255 / 0.1); border-color: var(--white); }
+.ct__btn--claro { border-color: var(--white); background: var(--white); color: var(--cubo-azul); }
+.ct__btn--claro:hover { background: #e8eefc; }
+
+/* símbolo da Cubo em traço fino, com as linhas de construção */
+.ct__art { position: absolute; right: -2%; top: 50%; width: min(46%, 440px); height: auto; translate: 0 -50%; overflow: visible; }
+.ct__grade line { stroke: rgb(255 255 255 / 0.16); stroke-width: 0.35; }
+.ct__peca { fill: rgb(255 255 255 / 0.04); stroke: rgb(255 255 255 / 0.75); stroke-width: 0.6; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s var(--ease) 0.2s; }
+.ct__peca--b { transition-delay: 0.5s; }
+.is-in .ct__peca { stroke-dashoffset: 0; }
+.ct__ponto { fill: var(--cubo-azul); stroke: rgb(255 255 255 / 0.8); stroke-width: 0.4; opacity: 0; transition: opacity 0.5s var(--ease) 1.6s; }
+.is-in .ct__ponto { opacity: 1; }
+
+@media (max-width: 900px) {
+  .ct__panel { grid-template-columns: 1fr; min-height: 0; padding-bottom: 200px; }
+  .ct__art { top: auto; bottom: -24px; right: 50%; translate: 50% 0; width: 260px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ct__peca { stroke-dashoffset: 0; transition: none; }
+  .ct__ponto { opacity: 1; transition: none; }
+}

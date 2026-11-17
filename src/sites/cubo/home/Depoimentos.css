@@ -1,0 +1,80 @@
+/* Depoimentos (Depoimentos.jsx), seguindo a seção de depoimentos do mindcloud.co */
+.dp { overflow: hidden; padding-block: var(--cubo-sec-y); background: #f7f7f8; }
+/* selo pequeno em cima e título em duas linhas, centralizados */
+.dp__head { display: flex; flex-direction: column; align-items: center; gap: 18px; margin-bottom: clamp(40px, 5vw, 64px); }
+.dp__selo { padding: 5px 12px; border: 1px solid #e3e4e7; border-radius: 999px; background: var(--white); font-size: 13px; font-weight: 500; color: #4f4f55; }
+.dp__title { margin: 0; text-align: center; font-size: clamp(26px, 3vw, 38px); line-height: 1.2; font-weight: 400; letter-spacing: 0; color: #4f4f55; text-wrap: balance; }
+.dp__title b { font-weight: 500; color: var(--cubo-preto); }
+
+/* grade de 3 colunas: Cícero + destaque (2 colunas) em cima, três cartões embaixo */
+.dp__grid { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.dp-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 340px;
+  padding: 24px;
+  border: 1px solid #ececed;
+  border-radius: 24px;
+  background: #f2f2f3;
+  box-shadow: 0 12px 24px -8px rgb(39 39 42 / 0.04);
+  color: var(--text);
+  text-decoration: none;
+}
+/* o nome da cidade faz o papel do logo do cliente */
+.dp-card__logo { font-size: 21px; line-height: 1.2; font-weight: 500; letter-spacing: 0; color: var(--cubo-preto); }
+.dp-card blockquote { flex: 1; margin: 0; }
+.dp-card blockquote p { margin: 0; font-size: 15px; line-height: 1.55; color: #2a2a2e; }
+
+.dp-quem { display: flex; align-items: center; gap: 12px; }
+.dp-quem span:last-child { display: flex; flex-direction: column; line-height: 1.4; }
+.dp-quem strong { font-size: 13.5px; font-weight: 500; }
+.dp-quem small { font-size: 12.5px; color: #8a8e97; }
+.dp-quem__av { width: 40px; height: 40px; flex: none; border-radius: 6px; display: grid; place-items: center; background: #dfe0e3; color: #4f4f55; font-size: 13px; font-weight: 500; }
+
+/* destaque: cartão escuro de duas colunas, com um brilho azul no lugar da foto */
+/* fica por cima da linha de baixo: a sombra dele cai na frente dos cartões, não atrás */
+.dp-card--destaque {
+  position: relative;
+  z-index: 2;
+  grid-column: span 2;
+  justify-content: space-between;
+  padding: 40px;
+  border: 0;
+  background: radial-gradient(70% 90% at 85% 10%, rgb(21 82 225 / 0.55), transparent 65%), linear-gradient(160deg, #1b1c22, var(--cubo-preto));
+  box-shadow: 0 24px 48px -20px rgb(12 12 12 / 0.45);
+  color: var(--white);
+}
+.dp-card--destaque .dp-card__logo { color: var(--white); }
+.dp-card--destaque blockquote { flex: none; }
+.dp-card--destaque blockquote p { max-width: 36ch; font-size: clamp(18px, 1.8vw, 21px); line-height: 1.5; color: var(--white); }
+.dp-card__assina { display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding-top: 16px; border-top: 1px solid rgb(255 255 255 / 0.12); font-size: 13.5px; color: rgb(255 255 255 / 0.65); }
+.dp-card__assina strong { font-weight: 500; color: var(--white); }
+.dp-card__assina i { font-style: normal; color: rgb(255 255 255 / 0.35); }
+
+/* cartões que levam a algum lugar */
+.dp-card--link { transition: border-color 0.25s var(--ease), translate 0.25s var(--ease); }
+.dp-card--link:hover { border-color: #d6d7da; translate: 0 -3px; }
+.dp-card__num { margin: auto 0 0; font-size: clamp(36px, 3.6vw, 48px); line-height: 1; font-weight: 500; color: var(--cubo-azul); }
+.dp-card__sub { margin: -10px 0 0; font-size: 14.5px; line-height: 1.55; color: #6b6f78; }
+.dp-card__sub--grande { flex: 1; margin: 0; font-size: 15px; color: #2a2a2e; }
+.dp-card__go { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--cubo-azul); transition: gap 0.2s var(--ease); }
+.dp-card--link:hover .dp-card__go { gap: 10px; }
+
+/* cartões cortados nas laterais, como no mindcloud */
+.dp__ghost { position: absolute; top: 0; width: 320px; height: 100%; border: 1px solid #ececed; border-radius: 24px; background: #f2f2f3; opacity: 0.55; pointer-events: none; }
+.dp__ghost--l { right: calc(100% + 16px); }
+.dp__ghost--r { left: calc(100% + 16px); }
+
+.dp .in-pend { margin-top: 20px; }
+
+@media (max-width: 900px) {
+  .dp__grid { grid-template-columns: 1fr 1fr; }
+  .dp__ghost { display: none; }
+}
+@media (max-width: 640px) {
+  .dp__grid { grid-template-columns: 1fr; }
+  .dp-card--destaque { grid-column: auto; padding: 28px; }
+  .dp-card { min-height: 0; }
+}

@@ -1,0 +1,92 @@
+/* Cena do hero do Legislativo (Hero.jsx): TV Câmara no centro, WhatsApp e Painel do Vereador nas laterais */
+.lch {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 520px) 1fr;
+  align-items: center;
+  gap: 0;
+  animation: lch-in 1s var(--ease) 0.35s both;
+}
+@keyframes lch-in { from { opacity: 0; translate: 0 28px; } }
+
+.lch-card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgb(255 255 255 / 0.96);
+  box-shadow: 0 30px 60px -24px rgb(5 10 40 / 0.55);
+  color: var(--text);
+  font-size: 12.5px;
+}
+.lch-card__top { display: flex; align-items: center; gap: 8px; padding-bottom: 10px; border-bottom: 1px solid var(--border-soft); font-weight: 600; }
+.lch-wa { width: 22px; height: 22px; border-radius: 7px; display: grid; place-items: center; background: #25d366; color: var(--white); }
+
+/* cartões laterais encostam na TV, levemente inclinados e flutuando */
+.lch-chat { margin-right: -28px; padding-right: 44px; rotate: -3deg; animation: lch-flutua 6s ease-in-out infinite; }
+.lch-painel { margin-left: -28px; padding-left: 44px; rotate: 3deg; animation: lch-flutua 6s ease-in-out -3s infinite; }
+@keyframes lch-flutua { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+
+.lch-msg { margin: 0; max-width: 92%; padding: 8px 11px; border-radius: 12px; line-height: 1.4; }
+.lch-msg--out { align-self: flex-end; background: var(--blue); color: var(--white); border-bottom-right-radius: 4px; }
+.lch-msg--in { align-self: flex-start; background: var(--surface); color: var(--text-2); border-bottom-left-radius: 4px; }
+
+.lch-painel__sub { margin-top: -4px; font-size: 11.5px; color: var(--text-3); }
+.lch-painel ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.lch-painel li { display: grid; grid-template-columns: 74px 1fr; align-items: center; gap: 10px; color: var(--text-2); }
+.lch-painel li i { height: 7px; border-radius: 999px; background: var(--blue-50); overflow: hidden; }
+.lch-painel li b { display: block; height: 100%; border-radius: inherit; background: var(--blue-300); }
+.lch-painel li:first-child b { background: var(--blue); }
+
+/* TV Câmara */
+.lch-tv {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--white);
+  box-shadow: 0 40px 80px -28px rgb(5 10 40 / 0.65);
+  color: var(--text);
+}
+.lch-tv__top { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--border-soft); font-size: 13px; }
+.lch-tv__top strong { font-weight: 600; }
+.lch-tv__top small { margin-left: auto; font-size: 12px; color: var(--text-3); }
+.lch-tv__live { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: 999px; background: #fdecec; color: #d93636; font-size: 11.5px; font-weight: 600; }
+.lch-tv__live i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: lch-pisca 1.4s ease-in-out infinite; }
+@keyframes lch-pisca { 50% { opacity: 0.3; } }
+
+.lch-tv__tela { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 22px 18px 16px; background: linear-gradient(180deg, var(--brand-navy), #23307a); }
+/* plenário: cadeiras que acendem conforme o voto */
+.lch-plen { display: grid; grid-template-columns: repeat(7, 26px); gap: 8px 10px; }
+.lch-plen span { width: 26px; height: 18px; border-radius: 6px 6px 3px 3px; background: rgb(255 255 255 / 0.14); transition: background 0.3s var(--ease), scale 0.3s var(--ease); }
+.lch-plen span.is-s { background: #4f9bff; scale: 1.05; }
+.lch-plen span.is-n { background: #f08a8a; }
+.lch-plen span.is-a { background: rgb(255 255 255 / 0.5); }
+.lch-tv__mesa { padding: 4px 18px; border-radius: 6px; background: rgb(255 255 255 / 0.12); font-size: 11px; color: rgb(255 255 255 / 0.75); }
+
+.lch-tv__pauta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 12px 16px 14px; }
+.lch-tv__pauta small { font-size: 11.5px; color: var(--text-3); }
+.lch-tv__pauta strong { display: block; font-size: 13px; font-weight: 600; }
+.lch-placar { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.lch-placar span { padding: 4px 9px; border-radius: 8px; background: var(--surface); color: var(--text-2); }
+.lch-placar b { font-variant-numeric: tabular-nums; color: var(--text); }
+.lch-placar .is-s b { color: var(--blue); }
+.lch-placar .is-n b { color: #d93636; }
+.lch-placar__res { font-weight: 600; transition: background 0.3s var(--ease), color 0.3s var(--ease); }
+.lch-placar__res.is-on { background: var(--blue); color: var(--white); }
+
+@media (max-width: 900px) {
+  .lch { grid-template-columns: 1fr; gap: 16px; max-width: 520px; }
+  .lch-chat, .lch-painel { margin: 0; padding: 14px; rotate: none; }
+  .lch-chat { order: 2; }
+  .lch-painel { order: 3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lch, .lch-chat, .lch-painel, .lch-tv__live i { animation: none; }
+}

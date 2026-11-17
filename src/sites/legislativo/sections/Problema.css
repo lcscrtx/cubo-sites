@@ -1,0 +1,31 @@
+/* Seção "O problema" do Legislativo (Problema.jsx): mini telas próprias sobre os painéis da Prova */
+
+/* os títulos dos painéis são frases, não números: um pouco menores que os números da Prova */
+#problema .pv-panel__copy h3 { line-height: 1.15; }
+.lp-solucao .pv-panel__copy h3 { color: var(--blue-600); }
+
+/* 1 · pergunta sem resposta */
+.lp-duvida { width: 300px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+.lp-duvida small { font-size: 11.5px; color: var(--text-3); }
+.lp-duvida strong { font-size: 15px; font-weight: 600; line-height: 1.35; animation: pv-pop 0.4s var(--ease) both; }
+.lp-duvida__sem { margin-top: 6px; display: inline-flex; align-items: center; gap: 6px; width: fit-content; padding: 4px 10px; border-radius: 999px; background: #fdecec; color: #c53030; font-size: 11.5px; font-weight: 500; }
+
+/* 2 · pedidos soltos, sem protocolo */
+.lp-solta { translate: calc(var(--k) * 18px) 0; transition: box-shadow 0.4s var(--ease), translate 0.4s var(--ease); }
+.lp-solta span:nth-child(2) { display: flex; flex-direction: column; line-height: 1.25; }
+.lp-solta small, .lp-bairro { font-size: 11px; color: var(--text-3); }
+.lp-solta__ico { width: 24px; height: 24px; flex: none; border-radius: 7px; display: grid; place-items: center; background: var(--surface); color: var(--text-3); }
+.lp-solta.is-on { translate: calc(var(--k) * 18px) -4px; }
+.lp-semprot { background: #fdecec; color: #c53030; }
+#problema .pv-row span:nth-child(2) { display: flex; flex-direction: column; line-height: 1.25; }
+
+/* 3 · painel sem dados: barras tracejadas */
+.lp-vazio { width: 300px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; }
+.lp-vazio strong { font-size: 20px; font-weight: 600; color: var(--text-3); }
+.lp-vazio__barras { margin-top: 8px; height: 70px; display: flex; align-items: flex-end; gap: 12px; }
+.lp-vazio__barras i { flex: 1; border: 1.5px dashed var(--ink-200); border-bottom: 0; border-radius: 6px 6px 0 0; }
+
+/* linhas um pouco mais largas que as da Prova, para título e status caberem numa linha */
+#problema .pv-row { width: 340px; }
+#problema .pv-row strong { white-space: nowrap; }
+#problema .pv-status { white-space: nowrap; }

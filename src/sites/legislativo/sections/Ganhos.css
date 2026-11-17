@@ -1,0 +1,55 @@
+/* Mini telas dos cards de ganhos do Legislativo (Ganhos.jsx), no estilo das mini telas de produtos do CC */
+.lg-ui { width: 80%; padding: 14px; border-radius: 14px; background: var(--white); border: 1px solid var(--blue-100); display: flex; flex-direction: column; gap: 9px; font-size: 12px; color: var(--text-2); }
+.lg-ui small { font-size: 10.5px; color: var(--text-3); }
+
+/* vereadores */
+.lg-ver span { display: grid; grid-template-columns: 72px 1fr; align-items: center; gap: 10px; transition: color 0.3s var(--ease); }
+.lg-ver em { font-style: normal; }
+.lg-ver i { height: 8px; border-radius: 999px; background: var(--blue-50); overflow: hidden; }
+.lg-ver b { display: block; height: 100%; border-radius: inherit; background: var(--blue-200); transition: background 0.3s var(--ease); }
+.lg-ver span.is-on { color: var(--text); }
+.lg-ver span.is-on b { background: var(--blue); }
+
+/* presidente e mesa */
+.lg-mesa__kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.lg-mesa__kpis span { padding: 8px 10px; border-radius: 10px; background: var(--surface); display: flex; flex-direction: column; }
+.lg-mesa__kpis b { font-size: 16px; font-weight: 600; color: var(--text); }
+.lg-mesa__chart { height: 56px; display: flex; align-items: flex-end; gap: 6px; }
+.lg-mesa__chart i { flex: 1; border-radius: 4px 4px 0 0; background: var(--blue-100); }
+.lg-mesa__chart i.is-on { background: var(--blue); }
+
+/* comunicação e TV */
+.lg-com { width: 80%; display: flex; flex-direction: column; align-items: flex-start; }
+.lg-com .lg-com__aviso { width: 88%; gap: 4px; }
+.lg-com__aviso strong { font-size: 13.5px; font-weight: 600; color: var(--text); }
+.lg-com__live { display: inline-flex; align-items: center; gap: 6px; width: fit-content; padding: 3px 9px; border-radius: 999px; background: #fdecec; color: #d93636; font-size: 11px; font-weight: 600; }
+.lg-com__live i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: lg-pisca 1.4s ease-in-out infinite; }
+@keyframes lg-pisca { 50% { opacity: 0.3; } }
+.lg-com .lg-com__aud { width: 52%; align-self: flex-end; margin-top: -12px; padding: 10px 12px; gap: 2px; box-shadow: var(--shadow); }
+.lg-com__aud b { font-size: 13px; font-weight: 600; color: var(--blue-600); }
+
+/* ouvidoria */
+.lg-ouv header { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text); }
+.lg-ouv__ia { width: 22px; height: 22px; border-radius: 7px; display: grid; place-items: center; background: var(--blue); color: var(--white); font-size: 9.5px; }
+.lg-ouv > span { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 9px; border-radius: 8px; background: var(--surface); transition: background 0.3s var(--ease); }
+.lg-ouv > span strong { font-weight: 500; }
+.lg-ouv > span em { font-style: normal; font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: var(--white); color: var(--text-3); transition: background 0.3s var(--ease), color 0.3s var(--ease); }
+.lg-ouv > span.is-on { background: var(--blue-50); }
+.lg-ouv > span.is-on em { background: var(--blue); color: var(--white); }
+
+/* zero papel: trâmite */
+.lg-zp ol { list-style: none; margin: 6px 0 2px; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); position: relative; }
+.lg-zp ol::before { content: ""; position: absolute; left: 12.5%; right: 12.5%; top: 6px; height: 2px; background: var(--blue-50); }
+.lg-zp li { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 10.5px; color: var(--text-3); transition: color 0.3s var(--ease); }
+.lg-zp li i { width: 14px; height: 14px; border-radius: 50%; background: var(--white); border: 2px solid var(--blue-100); transition: background 0.3s var(--ease), border-color 0.3s var(--ease); }
+.lg-zp li.is-done { color: var(--text); }
+.lg-zp li.is-done i { background: var(--blue); border-color: var(--blue); }
+
+/* pesquisas: mapa de bairros */
+.lg-pq__mapa { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.lg-pq__mapa i { height: 30px; border-radius: 8px; background: rgb(21 82 225 / calc(var(--o) * 0.35)); transition: background 0.3s var(--ease), scale 0.3s var(--ease); }
+.lg-pq__mapa i:nth-child(1) { border-radius: 14px 8px 8px 8px; }
+.lg-pq__mapa i:nth-child(6) { border-radius: 8px 8px 14px 8px; }
+.lg-pq__mapa i.is-on { background: var(--blue); scale: 1.04; }
+
+@media (prefers-reduced-motion: reduce) { .lg-com__live i { animation: none; } }

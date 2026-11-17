@@ -6,6 +6,16 @@ import { CenaLegislativo, ProcessoVivo } from "../comum/Cenas.jsx";
 import { LogoLegislativo, PorCubo, CC_HOME, ZP_HOME, LC_HOME } from "../comum/marcas.jsx";
 import { Secao, Pendencias } from "../cidade-conectada/pages/partes.jsx";
 import CtaFinal from "../cidade-conectada/sections/CtaFinal.jsx";
+import Hero from "./sections/Hero.jsx";
+import Problema from "./sections/Problema.jsx";
+import Publicos from "./sections/Publicos.jsx";
+import Jornada from "./sections/Jornada.jsx";
+import Ganhos from "./sections/Ganhos.jsx";
+import Porte from "./sections/Porte.jsx";
+import Implantacao from "./sections/Implantacao.jsx";
+import Oferta from "./sections/Oferta.jsx";
+import Seguranca from "./sections/Seguranca.jsx";
+import { BlogLegislativo, FaqLegislativo } from "./sections/Final.jsx";
 import "./legislativo.css";
 
 // Home do Legislativo Conectado (quadro "Legislativo Conectado · Home" do wireframe).
@@ -144,6 +154,35 @@ export default function LegislativoHome() {
       colunas={colunas}
       headerOverlay
     >
+      <Hero demo={DEMO} />
+      <Problema />
+      <Publicos />
+      <Jornada />
+      <Ganhos />
+      <Porte />
+      <Implantacao />
+      <Oferta />
+      <Seguranca />
+      <BlogLegislativo />
+      <FaqLegislativo demo={DEMO} />
+      <CtaFinal
+        id="contato"
+        titulo="A Câmara já trabalha para a cidade."
+        texto="O Legislativo Conectado faz a cidade ver isso."
+        acoes={<>
+          <a className="btn btn--light" href={DEMO}>Agendar demonstração</a>
+          <a className="btn btn--outline-light" href={CONTATO.whatsapp.href} target="_blank" rel="noreferrer"><Icone nome="chat" size={16} /> WhatsApp</a>
+        </>}
+      />
+    </LayoutSite>
+  );
+}
+
+// Refeito seção por seção no molde da Home do Cidade Conectada, com aprovação a cada passo:
+// hero, o problema, os três públicos e a jornada. As seções da versão anterior ficam aqui para reaproveitar o conteúdo.
+export function SecoesAnteriores() {
+  return (
+    <>
       <HeroCentro
         rotulo="Entre a Câmara e o cidadão, a gente."
         titulo="A porta de entrada digital da sua Câmara."
@@ -234,6 +273,6 @@ export default function LegislativoHome() {
           <a className="btn btn--outline-light" href={CONTATO.whatsapp.href} target="_blank" rel="noreferrer"><Icone nome="chat" size={16} /> WhatsApp</a>
         </>}
       />
-    </LayoutSite>
+    </>
   );
 }

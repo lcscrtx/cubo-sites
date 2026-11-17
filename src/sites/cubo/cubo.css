@@ -1,5 +1,47 @@
 /* ===== Site da Cubo ===== */
 
+/* Tipografia da Cubo: espaçamento entre letras quase neutro e entrelinha mais aberta nos títulos
+   (a Google Sans Flex já é compacta; com tracking negativo as letras ficavam coladas). */
+[data-site="cubo"] {
+  --ls-display: -0.012em;
+  --ls-titulo: -0.006em;
+  /* respiro vertical igual em todas as seções da Cubo */
+  --cubo-sec-y: clamp(56px, 6vw, 80px);
+
+  /* Paleta da Cubo (manual enviado em 2026-11-16): azul #1552e1, laranja #fa5f1c, preto #0c0c0c e branco.
+     Os tons claros são tintas do azul. O laranja é só detalhe. Os produtos seguem com as próprias cores. */
+  --cubo-azul: #1552e1;
+  --cubo-laranja: #fa5f1c;
+  --cubo-preto: #0c0c0c;
+  --blue: var(--cubo-azul);
+  --blue-600: #0f41b8;
+  --blue-800: var(--cubo-preto);
+  --blue-400: #5b86ea;
+  --blue-300: #95b0f0;
+  --blue-200: #c4d3f7;
+  --blue-100: #e2e9fb;
+  --blue-50: #f2f5fd;
+  --brand-navy: var(--cubo-preto);
+  --brand-royal: #26282d;
+  --brand-ice: #eef2fb;
+  --brand-periwinkle: #c4d3f7;
+  --panel: var(--brand-ice);
+  --accent: var(--cubo-azul);
+  --accent-hover: var(--blue-600);
+  --accent-soft: var(--blue-50);
+  --text: var(--cubo-preto);
+  --dark: var(--cubo-preto);
+}
+/* Na Cubo não há negrito: só regular (400) e médio (500). Peças comuns que vêm de outros CSS com 600/700 descem para 500. */
+[data-site="cubo"] :is(h1, h2, h3, h4, h5, h6, b, strong, th),
+[data-site="cubo"] .site-nav__drop strong,
+[data-site="cubo"] .site-mobile__top,
+[data-site="cubo"] :is(.mk-zp strong, .sc-card__head strong, .sc-card__head em, .sc-proc li.is-now, .sc-paper li em, .sc-painel li.is-on, .sc-tv__live, .sc-tv__pauta span.is-on, .sc-cubo__nome, .sc-eco__row span, .cx-vazio strong, .cx-passos__n, .cx-passos strong, .cx-card__n, .cx-card h3) { font-weight: 500; }
+[data-site="cubo"] :is(h1, h2, h3, h4) { letter-spacing: var(--ls-titulo); }
+[data-site="cubo"] .sec-head h2,
+[data-site="cubo"] .cx-faixa h2 { line-height: 1.15; letter-spacing: var(--ls-display); }
+[data-site="cubo"] :is(.bl-card h3, .cx-nums dd, .pg-post h3) { letter-spacing: var(--ls-titulo); }
+
 /* Mini tela do Cidade Conectada no hero: o celular sai de baixo do cartão */
 .sc-cubo__tela--panel { place-items: end center; padding: 0; }
 .sc-cubo__tela .pa-phone { margin-top: 0; height: 160px; }
@@ -19,11 +61,11 @@
   transition: background 0.3s var(--ease), padding 0.3s var(--ease);
 }
 .cb-doors a:hover { background: var(--surface); padding-inline: 24px; }
-.cb-doors__n { font-size: 14px; font-weight: 600; color: var(--blue); }
+.cb-doors__n { font-size: 14px; font-weight: 500; color: var(--blue); }
 .cb-doors__goal { display: flex; flex-direction: column; gap: 6px; }
-.cb-doors__goal strong { font-size: clamp(20px, 2.2vw, 28px); line-height: 1.15; font-weight: 500; letter-spacing: -0.02em; }
+.cb-doors__goal strong { font-size: clamp(20px, 2.2vw, 28px); line-height: 1.15; font-weight: 500; letter-spacing: var(--ls-titulo); }
 .cb-doors__goal small { font-size: 15px; color: var(--text-3); }
-.cb-doors__prod { display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: var(--blue-600); }
+.cb-doors__prod { display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 500; color: var(--blue-600); }
 .cb-doors__prod svg { color: var(--blue); }
 .cb-doors__go { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--border); color: var(--text); transition: all 0.3s var(--ease); }
 .cb-doors a:hover .cb-doors__go { background: var(--blue); border-color: var(--blue); color: var(--white); rotate: -45deg; }
@@ -32,7 +74,7 @@
 .cb-cities { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .cb-cities li { display: flex; align-items: center; gap: 12px; padding: 18px 20px; border-radius: 18px; border: 1px solid var(--border-soft); background: var(--white); }
 .cb-cities__ico { width: 40px; height: 40px; flex: none; border-radius: 12px; display: grid; place-items: center; background: var(--blue-50); color: var(--blue); }
-.cb-cities strong { font-size: 16px; font-weight: 600; }
+.cb-cities strong { font-size: 16px; font-weight: 500; }
 .cb-cities small { margin-left: auto; font-size: 13px; color: var(--text-3); }
 .cb-proof {
   margin-top: 16px;
@@ -48,9 +90,9 @@
   transition: box-shadow 0.3s var(--ease);
 }
 .cb-proof:hover { box-shadow: var(--shadow); }
-.cb-proof__tag { padding: 6px 12px; border-radius: 999px; background: var(--white); font-size: 13px; font-weight: 600; color: var(--blue-600); }
+.cb-proof__tag { padding: 6px 12px; border-radius: 999px; background: var(--white); font-size: 13px; font-weight: 500; color: var(--blue-600); }
 .cb-proof p { margin: 0; font-size: 18px; color: var(--text-2); }
-.cb-proof b { font-weight: 600; color: var(--text); }
+.cb-proof b { font-weight: 500; color: var(--text); }
 
 /* Produtos */
 .cb-prod {
@@ -67,7 +109,7 @@
 }
 .cb-prod:hover { border-color: var(--blue-100); box-shadow: var(--shadow); }
 .cb-prod__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 28px 22px; }
-.cb-prod__copy h3 { margin: 6px 0 0; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.2; font-weight: 500; letter-spacing: -0.02em; }
+.cb-prod__copy h3 { margin: 6px 0 0; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.2; font-weight: 500; letter-spacing: var(--ls-titulo); }
 .cb-prod__copy p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--text-3); }
 .cb-prod__copy ul { list-style: none; margin: 4px 0 6px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; }
 .cb-prod__copy li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text-2); }
@@ -87,23 +129,23 @@
 
 /* Carreiras */
 .cb-careers__card { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 28px; border-radius: 22px; background: var(--white); box-shadow: var(--shadow); }
-.cb-careers__card strong { font-size: 18px; font-weight: 600; }
+.cb-careers__card strong { font-size: 18px; font-weight: 500; }
 .cb-careers__card address { font-style: normal; font-size: 15px; line-height: 1.5; color: var(--text-3); }
 
 /* ===== Sobre ===== */
 .cb-line { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
 .cb-line li { display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--border); }
-.cb-line__ano { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; color: var(--blue); }
+.cb-line__ano { font-size: 22px; font-weight: 500; letter-spacing: var(--ls-titulo); color: var(--blue); }
 .cb-line__ano--ph { color: var(--text-3); }
-.cb-line strong { display: block; font-size: 20px; font-weight: 600; letter-spacing: -0.015em; }
+.cb-line strong { display: block; font-size: 20px; font-weight: 500; letter-spacing: 0; }
 .cb-line p { margin: 6px 0 0; font-size: 16px; color: var(--text-3); }
 
 .cb-id { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .cb-id article { padding: clamp(28px, 4vw, 44px); border-radius: 24px; background: var(--panel); display: flex; flex-direction: column; gap: 14px; }
 .cb-id article:first-child { background: var(--blue-800); color: var(--white); }
-.cb-id small { font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: var(--blue); }
+.cb-id small { font-size: 13px; font-weight: 500; letter-spacing: 0.02em; color: var(--blue); }
 .cb-id article:first-child small { color: var(--blue-200); }
-.cb-id p { margin: 0; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.25; font-weight: 500; letter-spacing: -0.02em; }
+.cb-id p { margin: 0; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.25; font-weight: 500; letter-spacing: var(--ls-titulo); }
 
 .cb-map { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: stretch; }
 .cb-map__art { border-radius: 24px; background: var(--panel); padding: 24px; display: grid; place-items: center; }
@@ -111,7 +153,7 @@
 .cb-map__list { display: flex; flex-direction: column; gap: 10px; }
 .cb-map__list li { list-style: none; display: flex; align-items: center; gap: 12px; padding: 16px 18px; border-radius: 16px; border: 1px solid var(--border-soft); }
 .cb-map__list ul { margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-.cb-map__list strong { font-weight: 600; }
+.cb-map__list strong { font-weight: 500; }
 .cb-map__list small { margin-left: auto; color: var(--text-3); }
 .cb-map__list .is-sede { background: var(--blue-50); border-color: var(--blue-100); }
 

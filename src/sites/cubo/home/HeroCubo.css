@@ -1,0 +1,96 @@
+/* Hero da Cubo (HeroCubo.jsx) e cilindros (Cilindros.jsx) */
+.hsy { position: relative; overflow: hidden; padding-top: clamp(56px, 7vw, 96px); }
+.hsy__copy { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.hsy h1 { margin: 0; max-width: 14ch; font-size: var(--fs-display); line-height: 1.15; font-weight: 500; letter-spacing: var(--ls-display); text-wrap: balance; }
+.hsy__copy p { margin: 22px 0 0; max-width: 56ch; font-size: 17px; line-height: 1.6; color: var(--text-3); }
+.hsy__actions { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+.hsy__stage { position: relative; height: 500px; margin-top: 56px; }
+
+/* ----- Prismas (Prismas.jsx) ----- */
+.prismas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.prisma { animation: prisma-sobe 1.1s var(--ease) var(--d) both; }
+.prisma__aresta { fill: none; stroke: rgb(255 255 255 / 0.9); stroke-width: 1.2; }
+.prisma__cubinho { animation: prisma-flutua 5s ease-in-out 1.4s infinite; }
+@keyframes prisma-sobe { from { transform: translateY(460px); } }
+@keyframes prisma-flutua { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* ----- Cartão da frente ----- */
+.hsy__front { position: absolute; z-index: 2; left: 50%; top: 36px; width: min(560px, calc(100% - 32px)); translate: -50% 0; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.hsy__card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 22px 18px;
+  border: 1px solid rgb(10 18 38 / 0.06);
+  border-radius: 22px;
+  background: rgb(255 255 255 / 0.96);
+  box-shadow: 0 1px 0 rgb(255 255 255) inset, 0 30px 70px -20px rgb(22 32 91 / 0.45), 0 8px 20px -10px rgb(22 32 91 / 0.2);
+  animation: hsy-card 0.6s var(--ease) both;
+}
+@keyframes hsy-card { from { opacity: 0; translate: 0 14px; } }
+.hsy__card header { display: flex; align-items: center; gap: 10px; }
+.hsy__logo { display: flex; align-items: center; }
+.hsy__logo .mk-zp { font-size: 13px; }
+.hsy__card header small { font-size: 12.5px; color: var(--text-3); }
+.hsy__card header em { margin-left: auto; padding: 4px 10px; border-radius: 999px; background: var(--blue-50); font-style: normal; font-size: 12px; font-weight: 500; color: var(--blue-600); }
+.hsy__card h2 { margin: 6px 0 0; font-size: 20px; line-height: 1.25; font-weight: 500; letter-spacing: var(--ls-titulo); }
+.hsy__card p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--text-2); }
+.hsy__tags { list-style: none; margin: 2px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.hsy__tags li { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border-soft); font-size: 12.5px; color: var(--text-2); }
+.hsy__tags svg { color: var(--blue); }
+.hsy__card footer { margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--border-soft); display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.hsy__act { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border: 1px solid var(--border); border-radius: 999px; font-size: 13px; font-weight: 500; color: var(--text-2); }
+.hsy__act--main { border-color: var(--blue-200); background: var(--blue-50); color: var(--blue-600); }
+
+/* Micro animação do aviso: o cursor vem de baixo, clica na ação principal e ela fica marcada */
+.hsy__card { position: relative; }
+.hsy__cursor {
+  position: absolute;
+  z-index: 3;
+  left: 64px;
+  bottom: 14px;
+  width: 22px;
+  height: 22px;
+  fill: var(--ink-950);
+  stroke: var(--white);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 3px 4px rgb(10 18 38 / 0.3));
+  opacity: 0;
+  animation: hsy-cursor 5s var(--ease) both;
+}
+@keyframes hsy-cursor {
+  0%, 46% { opacity: 0; translate: 220px 70px; }
+  56% { opacity: 1; }
+  72% { opacity: 1; translate: 0 0; scale: 1; }
+  77% { scale: 0.82; }
+  82% { scale: 1; opacity: 1; translate: 0 0; }
+  100% { opacity: 0; translate: 8px 6px; }
+}
+.hsy__act--main { animation: hsy-press 5s var(--ease) both; }
+@keyframes hsy-press {
+  0%, 75% { background: var(--blue-50); color: var(--blue-600); border-color: var(--blue-200); scale: 1; }
+  78% { scale: 0.94; }
+  82%, 100% { background: var(--blue); color: var(--white); border-color: var(--blue); scale: 1; }
+}
+.hsy__card .hsy__tags li { animation: hsy-tag 0.5s var(--ease) both; }
+.hsy__card .hsy__tags li:nth-child(2) { animation-delay: 0.12s; }
+@keyframes hsy-tag { from { opacity: 0; translate: 0 6px; } }
+.hsy__go { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 14px; border-radius: 999px; background: var(--blue); color: var(--white); font-size: 13px; font-weight: 500; text-decoration: none; }
+.hsy__go:hover { background: var(--blue-600); }
+
+.hsy__dots { display: flex; gap: 6px; padding: 6px 8px; border-radius: 999px; background: rgb(255 255 255 / 0.7); backdrop-filter: blur(8px); }
+.hsy__dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: var(--blue-200); cursor: pointer; transition: width 0.3s var(--ease), background 0.3s var(--ease); }
+.hsy__dots button.is-on { width: 22px; background: var(--blue); }
+
+@media (max-width: 760px) {
+  .hsy__stage { height: 480px; margin-top: 40px; }
+  .hsy__front { top: 20px; }
+  .hsy__card footer .hsy__act:nth-child(2) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .prisma, .prisma__cubinho, .hsy__card, .hsy__act--main, .hsy__card .hsy__tags li { animation: none; }
+  .hsy__cursor { display: none; }
+}
