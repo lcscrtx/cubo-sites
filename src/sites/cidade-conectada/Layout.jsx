@@ -48,7 +48,7 @@ const topBar = {
   ],
   links: [
     { label: "Central de ajuda", href: `${BASE}/ajuda` },
-    { label: "Acesso do cliente", href: "#acesso" },
+    { label: "Acesso do cliente", href: "/acesso" },
   ],
 };
 

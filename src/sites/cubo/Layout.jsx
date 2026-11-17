@@ -3,7 +3,7 @@ import { CC_HOME, ZP_HOME, LC_HOME } from "../comum/marcas.jsx";
 import { CONTATO } from "../../ds/contato.js";
 
 // Casca do site da Cubo Tecnologia, a empresa-mãe. Menu do wireframe:
-// Produtos · Sobre · Clientes · Blog · Carreiras · Fale conosco.
+// Produtos · Soluções · Sobre · Clientes · Blog · Carreiras · Fale conosco (página de contato).
 
 export const FALE = `mailto:${CONTATO.email}?subject=${encodeURIComponent("Contato pelo site da Cubo")}`;
 export const PARCEIRO = `mailto:${CONTATO.email}?subject=${encodeURIComponent("Quero ser parceiro da Cubo")}`;
@@ -27,10 +27,11 @@ const nav = [
       { label: "Legislativo Conectado", icone: "camara", texto: "Para câmaras e assembleias", href: LC_HOME },
     ],
   },
+  { label: "Soluções", href: "/solucoes" },
   { label: "Sobre", href: "/sobre" },
   { label: "Clientes", href: "/#clientes" },
   { label: "Blog", href: "/blog" },
-  { label: "Carreiras", href: "/#carreiras" },
+  { label: "Carreiras", href: "/carreiras" },
 ];
 
 const topBar = {
@@ -42,7 +43,7 @@ const topBar = {
   ],
   links: [
     { label: "Blog", href: "/blog" },
-    { label: "Acesso do cliente", href: "#acesso" },
+    { label: "Acesso do cliente", href: "/acesso" },
   ],
 };
 
@@ -59,14 +60,16 @@ const colunas = [
     title: "Institucional",
     links: [
       { label: "Sobre a Cubo", href: "/sobre" },
+      { label: "Soluções", href: "/solucoes" },
       { label: "Conformidade e ética", href: "/sobre#conformidade" },
-      { label: "Carreiras", href: "/#carreiras" },
+      { label: "Carreiras", href: "/carreiras" },
       { label: "Blog", href: "/blog" },
     ],
   },
   {
     title: "Fale conosco",
     links: [
+      { label: "Contato", href: "/contato" },
       { label: "Falar com a equipe", href: FALE },
       { label: "Seja um parceiro", href: PARCEIRO },
     ],
@@ -82,7 +85,7 @@ export default function Layout({ titulo, headerOverlay, children }) {
       brand={<MarcaCubo />}
       nav={nav}
       topBar={topBar}
-      cta={{ label: "Fale conosco", href: "/#contato" }}
+      cta={{ label: "Fale conosco", href: "/contato" }}
       resumo="Entre a prefeitura e o cidadão, a gente."
       colunas={colunas}
       byCubo={false}

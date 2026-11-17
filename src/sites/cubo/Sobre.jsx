@@ -24,7 +24,7 @@ const MARCOS = [
 const LUGARES = [["João Pessoa", "PB", true], ["Campina Grande", "PB"], ["Cabedelo", "PB"], ["Feira de Santana", "BA"]];
 
 /** Nordeste em quadradinhos: Paraíba e Bahia acesas, sede pulsando. Esquema, não mapa em escala. */
-function MapaNordeste() {
+export function MapaNordeste() {
   // grade 9x8; 1 = estado do Nordeste, 2 = PB, 3 = BA
   const G = ["000111110", "001111111", "011111112", "011111122", "001133311", "001333310", "000333300", "000033000"];
   return (

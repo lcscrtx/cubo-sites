@@ -34,7 +34,7 @@
   font-size: clamp(32px, 9vw, 48px); /* 48px; só encolhe em telas estreitas de celular */
   line-height: 1.06;
   font-weight: 500;
-  letter-spacing: -0.035em;
+  letter-spacing: var(--tracking-neg, -0.035em);
   color: var(--white);
 }
 .cc-hero__lead {

@@ -15,7 +15,7 @@
   font-size: var(--fs-h2);
   line-height: 1.08;
   font-weight: 500;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--tracking-neg, -0.03em);
 }
 .pv-head__side { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; padding-bottom: 6px; }
 .pv-head__side p { font-size: 17px; line-height: 1.55; color: var(--text-3); max-width: 46ch; }
@@ -60,7 +60,7 @@
   font-size: clamp(22px, 1.9vw, 28px);
   line-height: 1;
   font-weight: 500;
-  letter-spacing: -0.035em;
+  letter-spacing: var(--tracking-neg, -0.035em);
 }
 .pv-panel__copy p { margin-top: 8px; max-width: 34ch; font-size: 14.5px; line-height: 1.5; color: var(--text-3); }
 
@@ -158,7 +158,7 @@
 /* 2 · Conclusão */
 .pv-progress { width: 320px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; }
 .pv-progress__label { font-size: 12px; color: var(--text-3); }
-.pv-progress strong { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
+.pv-progress strong { font-size: 20px; font-weight: 600; letter-spacing: var(--tracking-neg, -0.02em); }
 .pv-progress__bar { margin-top: 6px; height: 10px; border-radius: 999px; background: var(--blue-50); overflow: hidden; }
 .pv-progress__bar span { display: block; height: 100%; border-radius: inherit; background: var(--blue); }
 .pv-progress__legend { margin-top: 4px; display: flex; gap: 16px; font-size: 11.5px; color: var(--text-3); }
@@ -216,7 +216,7 @@
   align-items: start;
   margin-top: 40px;
 }
-.pv-economia { font-size: 20px; line-height: 1.45; letter-spacing: -0.01em; color: var(--text-2); }
+.pv-economia { font-size: 20px; line-height: 1.45; letter-spacing: var(--tracking-neg, -0.01em); color: var(--text-2); }
 .pv-economia strong { color: var(--text); font-weight: 600; }
 .pv-economia i {
   display: inline-block;
@@ -242,7 +242,7 @@
 }
 .pv-cidades > span { font-size: var(--fs-small); color: var(--text-3); }
 .pv-cidades ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 44px; }
-.pv-cidades li { font-size: 17px; font-weight: 500; letter-spacing: -0.01em; color: var(--ink-400); }
+.pv-cidades li { font-size: 17px; font-weight: 500; letter-spacing: var(--tracking-neg, -0.01em); color: var(--ink-400); }
 
 @media (max-width: 960px) {
   .pv-head, .pv-foot { grid-template-columns: 1fr; }

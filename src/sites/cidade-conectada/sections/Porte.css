@@ -9,7 +9,7 @@
 }
 .pt:not(.is-in) .pt-body { opacity: 0; translate: 0 28px; }
 
-.pt-copy h2 { font-size: var(--fs-h2); line-height: 1.08; font-weight: 500; letter-spacing: -0.03em; }
+.pt-copy h2 { font-size: var(--fs-h2); line-height: 1.08; font-weight: 500; letter-spacing: var(--tracking-neg, -0.03em); }
 .pt-lead { margin-top: 16px; font-size: 17px; line-height: 1.55; color: var(--text-3); max-width: 44ch; }
 
 /* Lista leve: linhas com uma barra à esquerda; só a ativa ganha destaque */
@@ -40,7 +40,7 @@
 }
 .pt-list button.is-active::before { background: var(--blue); }
 .pt-list__text { display: flex; flex-direction: column; gap: 4px; }
-.pt-list__text strong { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: var(--text-3); transition: color 0.3s var(--ease); }
+.pt-list__text strong { font-size: 17px; font-weight: 600; letter-spacing: var(--tracking-neg, -0.01em); color: var(--text-3); transition: color 0.3s var(--ease); }
 .pt-list__text > span { font-size: 14px; line-height: 1.5; color: var(--text-3); }
 .pt-list button:hover strong, .pt-list button.is-active strong { color: var(--text); }
 /* detalhe só aparece na ativa */

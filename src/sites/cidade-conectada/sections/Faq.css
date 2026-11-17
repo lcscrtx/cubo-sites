@@ -3,7 +3,7 @@
 .fq-body { display: grid; grid-template-columns: 4fr 7fr; gap: 40px 80px; align-items: start; }
 
 .fq-side { position: sticky; top: 140px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
-.fq-side h2 { font-size: var(--fs-h2); line-height: 1.08; font-weight: 500; letter-spacing: -0.03em; }
+.fq-side h2 { font-size: var(--fs-h2); line-height: 1.08; font-weight: 500; letter-spacing: var(--tracking-neg, -0.03em); }
 .fq-side p { font-size: 16px; line-height: 1.55; color: var(--text-3); max-width: 36ch; margin-bottom: 8px; }
 
 .fq-list { margin: 0; border-top: 1px solid var(--border); }
@@ -14,7 +14,7 @@
   padding: 24px 0;
   border-bottom: 1px solid var(--border-soft);
 }
-.fq-item dt { font-size: 16.5px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.4; }
+.fq-item dt { font-size: 16.5px; font-weight: 600; letter-spacing: var(--tracking-neg, -0.01em); line-height: 1.4; }
 .fq-item dd { margin: 0; font-size: 15px; line-height: 1.55; color: var(--text-3); }
 .fq-item dd a { color: var(--blue-600); font-weight: 500; text-decoration: underline; text-decoration-color: var(--blue-200); text-underline-offset: 4px; }
 

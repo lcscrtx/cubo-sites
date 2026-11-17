@@ -1,4 +1,5 @@
 import { CONTATO } from "./contato.js";
+import CookieAviso, { abrirPreferencias } from "./Cookies.jsx";
 import "./SiteFooter.css";
 
 /**
@@ -48,8 +49,10 @@ export default function SiteFooter({ brand, resumo, columns, name, byCubo = true
         <div className="site-footer__bottom">
           <span>© {ano} {name}. Todos os direitos reservados.</span>
           <span className="site-footer__legal">
-            <a href="#privacidade">Privacidade</a>
-            <a href="#termos">Termos de uso</a>
+            <a href="/privacidade">Privacidade</a>
+            <a href="/privacidade#cookies">Cookies</a>
+            <a href="/termos">Termos de uso</a>
+            <button type="button" onClick={abrirPreferencias}>Gerenciar cookies</button>
           </span>
           {byCubo && (
             <a className="site-footer__cubo" href="/" aria-label="Cubo Tecnologia">
@@ -59,6 +62,7 @@ export default function SiteFooter({ brand, resumo, columns, name, byCubo = true
           )}
         </div>
       </div>
+      <CookieAviso />
     </footer>
   );
 }

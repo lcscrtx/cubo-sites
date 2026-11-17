@@ -10,7 +10,7 @@
 .lc-dest__win { width: min(100%, 360px); }
 .lc-dest__win > .sc-card { box-shadow: var(--shadow-lg); }
 .lc-dest__copy { padding: 22px 18px 18px; }
-.lc-dest__copy h3 { margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.015em; }
+.lc-dest__copy h3 { margin: 0; font-size: 22px; font-weight: 600; letter-spacing: var(--tracking-neg, -0.015em); }
 .lc-dest__copy p { margin: 8px 0 0; font-size: 16px; line-height: 1.55; color: var(--text-3); }
 
 /* mapa da pesquisa regionalizada */

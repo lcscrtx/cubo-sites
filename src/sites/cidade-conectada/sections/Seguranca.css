@@ -25,7 +25,7 @@
   background: var(--blue-50);
   color: var(--blue);
 }
-.sg-list h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; }
+.sg-list h3 { font-size: 18px; font-weight: 600; letter-spacing: var(--tracking-neg, -0.015em); }
 .sg-list p { font-size: 14.5px; line-height: 1.55; color: var(--text-3); }
 
 .sg-note { margin-top: 32px; font-size: 12.5px; }

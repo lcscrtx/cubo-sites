@@ -10,3 +10,4 @@ referencia/
 
 .vercel
 .env*
+dist-ssr

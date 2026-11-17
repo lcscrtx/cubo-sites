@@ -13,7 +13,7 @@
 }
 /* a completa ganha o fundo do painel e borda azul: é o caminho principal */
 .of-card--full { background: var(--panel); border-color: var(--blue-200); }
-.of-card h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+.of-card h3 { font-size: 22px; font-weight: 600; letter-spacing: var(--tracking-neg, -0.02em); }
 .of-card__text { font-size: 15px; line-height: 1.55; color: var(--text-3); max-width: 44ch; }
 .of-card__cta { align-self: flex-start; margin-top: auto; }
 

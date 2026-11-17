@@ -1,10 +1,10 @@
 /* ===== Site da Cubo ===== */
 
-/* Tipografia da Cubo: espaçamento entre letras quase neutro e entrelinha mais aberta nos títulos
+/* Tipografia da Cubo: espaçamento entre letras zerado e entrelinha mais aberta nos títulos
    (a Google Sans Flex já é compacta; com tracking negativo as letras ficavam coladas). */
 [data-site="cubo"] {
-  --ls-display: -0.012em;
-  --ls-titulo: -0.006em;
+  --ls-display: 0;
+  --ls-titulo: 0;
   /* respiro vertical igual em todas as seções da Cubo */
   --cubo-sec-y: clamp(56px, 6vw, 80px);
 

@@ -16,19 +16,22 @@ const pontos = (p) => p.map((q) => q.join(",")).join(" ");
 const VERTICAIS = [155.1, 171.3, 215.2, 231.5];
 const HORIZONTAIS = [355.8, 372.0, 416.0, 432.0];
 
-/** semSobre: esconde o botão "Sobre a Cubo" quando o CTA está na própria página Sobre */
-export default function Cta({ semSobre = false }) {
+/** semSobre: esconde o botão "Sobre a Cubo" quando o CTA está na própria página Sobre.
+    titulo e acoes trocam o texto e os botões nas páginas internas (Carreiras, Soluções). */
+export default function Cta({ semSobre = false, titulo, acoes }) {
   const [ref, on] = useInView({ threshold: 0.3 });
   return (
     <section ref={ref} className={`ct js-reveal ${on ? "is-in" : ""}`} id="contato">
       <div className="container">
         <div className="ct__panel">
           <div className="ct__copy">
-            <h2>Vamos transformar a gestão da sua cidade?<br /><span>Vamos conversar.</span></h2>
+            {titulo ?? <h2>Vamos transformar a gestão da sua cidade?<br /><span>Vamos conversar.</span></h2>}
             <div className="ct__actions">
+              {acoes ?? <>
               <a className="ct__btn ct__btn--claro" href={FALE}>Falar com a equipe</a>
               <a className="ct__btn" href={CONTATO.whatsapp.href} target="_blank" rel="noreferrer"><Icone nome="chat" size={15} />WhatsApp</a>
               {!semSobre && <Link className="ct__btn" to="/sobre">Sobre a Cubo</Link>}
+              </>}
             </div>
           </div>
 

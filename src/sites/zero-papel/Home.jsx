@@ -62,7 +62,7 @@ const topBar = {
   ],
   links: [
     { label: "Cubo Tecnologia", href: "/" },
-    { label: "Acesso do cliente", href: "#acesso" },
+    { label: "Acesso do cliente", href: "/acesso" },
   ],
 };
 
